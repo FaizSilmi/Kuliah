@@ -9,8 +9,8 @@
 int main() {
     printf("Identitas Diri \n");
     printf("TM/NIM : 24/2024\n");
-    printf("Nama : Muhammad Faiz Silmi\n");
-    printf("Group : -\n");
+    printf("Nama   : Muhammad Faiz Silmi\n");
+    printf("Group  : -\n");
     printf("Matakuliah : Praktikum Algoritma\n");
     printf("Dosen : Drs. Denny Kurniadi, M.Kom\n");
     return 0;

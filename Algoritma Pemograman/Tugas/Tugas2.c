@@ -10,7 +10,7 @@
 #include<math.h>
 
 int main(){
-	printf("Project Tugas no. 1 \n");
+	printf("Project Tugas no. 2 \n");
 	printf("===================== \n");
 	printf("Progammer : Muhammad Faiz Silmi A \n");
 	printf("NIM       : 24343099 \n");

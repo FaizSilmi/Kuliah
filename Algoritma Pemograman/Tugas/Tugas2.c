@@ -2,7 +2,7 @@
 	Nama File      : Tugas2.c 
 	Programmer     : Muhammad Faiz Silmi (24343099)
 	Tgl. pembuatan : 04 September 2024 
-	Deskripsi      : program ini menghitung total belanja setelah kena pajak
+	Deskripsi      : program ini menentukan keliling bentuk bentuk geometris 
 */
 
 #include<stdio.h>

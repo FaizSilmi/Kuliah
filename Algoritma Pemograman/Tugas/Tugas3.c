@@ -10,6 +10,11 @@
 #define PHI 3.14
 
 int main(){
+	printf("Project Tugas no. 3 \n");
+	printf("===================== \n");
+	printf("Progammer : Muhammad Faiz Silmi A \n");
+	printf("NIM       : 24343099 \n");
+	printf("===================== \n");
 	float sisikubus, selimutkubus, panjangbalok, lebarbalok, tinggibalok, selimutbalok, diameter, tinggitabung, selimuttabung;
 	// Masukkan variabel kubus
 	printf("Masukkan sisi kubus= ");

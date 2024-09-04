@@ -7,6 +7,7 @@
 
 #include<stdio.h>
 #include<math.h>
+#define PHI 3.14
 
 int main(){
 	printf("Project Tugas 2 B Evaluasi \n");
@@ -14,15 +15,16 @@ int main(){
 	printf("Progammer : Muhammad Faiz Silmi A \n");
 	printf("NIM       : 24343099 \n");
 	printf("===================== \n");
-	float a, b, c;
+	float a, panjangtali, sudut, sudutradian;
 	// Masukkan variabel yang dibutuhkan
 	printf("Masukkan panjang tali= ");
-	scanf("%f", &c);
-	printf("Masukkan jarak mendatar= ");
-	scanf("%f", &b);
+	scanf("%f", &panjangtali);
+	printf("Masukkan sudut elevasi= ");
+	scanf("%f", &sudut);
+	// Konversi sudut derajat ke radian
+	sudutradian = sudut * PHI / 180.00;
 	// Menghitung sisi tegak
-	a = sqrt(c*c - b*b);
+	a = panjangtali * sin(sudutradian);
 	// Hasil
-	printf("Tinggi layangan= %.2f \n", a);
+	printf("Tinggi layangan= %.2f Meter \n", a);
 }
-

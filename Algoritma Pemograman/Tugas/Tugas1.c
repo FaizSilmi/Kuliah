@@ -1,7 +1,7 @@
 /*  
 	Nama File      : Tugas1.c 
 	Programmer     : Muhammad Faiz Silmi (24343099)
-	Tgl. pembuatan : 02 September 2024 
+	Tgl. pembuatan : 04 September 2024 
 	Deskripsi      : program ini menghitung total belanja setelah kena pajak
 */
 

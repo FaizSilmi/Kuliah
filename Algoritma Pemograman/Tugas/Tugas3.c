@@ -1,3 +1,10 @@
+/*  
+	Nama File      : Tugas3.c 
+	Programmer     : Muhammad Faiz Silmi (24343099)
+	Tgl. pembuatan : 04 September 2024 
+	Deskripsi      : program ini menentukan nilai luas kulit/selimut benda
+*/
+
 #include<stdio.h>
 #include<math.h>
 #define PHI 3.14

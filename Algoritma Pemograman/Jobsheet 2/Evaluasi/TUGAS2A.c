@@ -28,7 +28,7 @@ int main(){
 	scanf("%f", &vr2);
 	// Proses menghitung
 	rt = 1.00 / ((1.00 / r1) + (1.00 / r2) + (1.00 / r3));
-	v = vr1 + vr2;
+	v = vr1 = vr2;
 	i = v / rt;
 	// Hasil
 	printf("Total tahanan= %.2f Ohm \n", rt);

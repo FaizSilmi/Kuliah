@@ -29,8 +29,8 @@ int main(){
 	printf("Apakah koordinat sudah benar? (Y/N)");
 	scanf(" %c", &konfirmasi);
 	if (konfirmasi == 'Y' || konfirmasi == 'y'){
-		titiktengahp = (x1+y1)/2.00;
-		titiktengahq = (x2+y2)/2.00;
+		titiktengahp = (x1+x2)/2.00;
+		titiktengahq = (y1+y2)/2.00;
 		printf("Titik tengah= %.0f, %.0f", titiktengahp, titiktengahq);
 	}
 	else {

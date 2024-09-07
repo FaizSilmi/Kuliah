@@ -18,8 +18,8 @@ int main (){
 	printf("Masukkan nilai cm= ");
 	scanf("%f", &cm);
 	// Konversi
-	m = cm * 100;
-	km = cm * 100000;
+	m = cm / 100;
+	km = cm / 100000;
 	// Hasil
 	printf("Meter= %.2f \nKilo Meter= %.2f \n", m, km);
 	printf("============================ \n");
@@ -30,8 +30,9 @@ int main (){
 	printf("Masukkan nilai KM= ");
 	scanf("%f", &km2);
 	// Konversi
-	m2 = km2 / 100;
-	cm2 = km2 / 100000;
+	m2 = km2 * 100;
+	cm2 = km2 * 100000;
 	// Hasil
-	printf("Meter= %.5f \nCentiMeter= %.5", m2, cm2);
+	printf("Meter= %.5f \n", m2);
+	printf("CentiMeter= %.5f \n",cm2);
 }

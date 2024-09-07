@@ -38,6 +38,6 @@ int main(){
 	// Proses menghitung
 	rtseri = rs1 + rs2 + rs3;
 	//Hasil paralel
-	printf("Total resistansi seri= %.2f /n", rtseri);
+	printf("Total resistansi seri= %.2f \n", rtseri);
 	printf("============================\n");
 }

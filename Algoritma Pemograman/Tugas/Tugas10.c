@@ -23,7 +23,7 @@ int main(){
 	scanf("%f", &dd);
 	printf("%.0f : %.0f : %.0f \n", jj, mm, dd);
 	// Konversi ke detik
-	totaldd = jj * 3600 + mm * 60 + dd;
+	totaldd = (jj * 3600) + (mm * 60) + dd;
 	// Hasil
 	printf("Total Detik= %.0f \n", totaldd);
 	printf("====================");

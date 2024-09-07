@@ -20,7 +20,7 @@ int main(){
 	scanf("%f", &nilai1);
 	printf("Masukkan nilai belanjaan 2= ");
 	scanf("%f", &nilai2);
-	printf("Masukkan nilai belanjaan 2= ");
+	printf("Masukkan nilai belanjaan 3= ");
 	scanf("%f", &nilai3);
 	//Menjumlahkan total belanja
 	biaya = nilai1 + nilai2 +nilai3;

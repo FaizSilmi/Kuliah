@@ -1,7 +1,7 @@
 /* 	
 	Nama File		: latihan2A.c
-	Programmer		: Qayla At Thahar
-	Tgl. pembuatan	: 9 september 2024
+	Programmer		: Muhammad Faiz Silmi
+	Tgl. pembuatan		: 9 september 2024
 	Deskripsi		: konverensi waktu jam ke total detik dan sebaliknya
 */
 

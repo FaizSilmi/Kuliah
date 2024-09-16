@@ -1,6 +1,6 @@
 /* 	Nama File		: latihan3E.c
-	Programmer	: tuliskan nama dan nim anda
-	Tgl. pembuatan	: tuliskan tanggal hari praktikum anda
+	Programmer		: Muhammad Faiz Silmi
+	Tgl. pembuatan		: 10 September 2024
 	Deskripsi		: program ini melakukan perhitungan cicilan kredit barang	                            
 */
 

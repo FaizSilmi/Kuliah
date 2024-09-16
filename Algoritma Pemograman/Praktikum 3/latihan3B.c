@@ -1,6 +1,6 @@
 /* 	Nama File		: latihan3B.c
 	Programmer		: Muhammad Faiz SIilmi
-	Tgl. pembuatan	: tuliskan tanggal hari praktikum anda
+	Tgl. pembuatan		: 10 September 2024
 	Deskripsi		: program ini menampilkan teks	                            
 */
 

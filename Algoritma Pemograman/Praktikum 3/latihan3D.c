@@ -1,6 +1,6 @@
 /* 	Nama File		: latihan3D.c
 	Programmer		: tuliskan nama dan nim anda
-	Tgl. pembuatan	: tuliskan tanggal hari praktikum anda
+	Tgl. pembuatan		: 10 September 2024
 	Deskripsi		: program ini melakukan perhitungan diskon	                            
 */
 

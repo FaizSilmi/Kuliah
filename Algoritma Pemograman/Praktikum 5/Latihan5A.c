@@ -12,7 +12,7 @@ void judulProgram();
 void judulProgram() {
     printf("=============================================\n");
     printf("           Selamat Datang di\n");
-    printf("           Aplikasi manajemen tugas");
+    printf("           Aplikasi manajemen tugas\n");
     printf("=============================================\n");
 }
 

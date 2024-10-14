@@ -1,6 +1,6 @@
 /* 	Nama File		: latihan3C.c
 	Programmer		: Muhammad Faiz Silmi
-	Tgl. pembuatan		: 10 September 2024
+	Tgl. pembuatan	: 10 September 2024
 	Deskripsi		: program ini membaca karakter getchar()	                            
 */
 

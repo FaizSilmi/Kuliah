@@ -1,6 +1,6 @@
 /* 	Nama File		: latihan3A.c
 	Programmer		: Muhammad Faiz Silmi
-	Tgl. pembuatan		: 10 September 2024
+	Tgl. pembuatan	: 10 September 2024
 	Deskripsi		: program ini represtasi input output berformat	                            
 */
 

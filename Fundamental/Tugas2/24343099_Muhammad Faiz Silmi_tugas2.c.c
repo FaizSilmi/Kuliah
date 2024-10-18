@@ -115,7 +115,7 @@ int main(){
     int level;
     int highScore = 0;
     while (1) {
-        printf("========== Game tebak angka ==========\n");
+        printf("============= Game tebak angka =============\n");
         printf("Nama	: Muhammad Faiz Silmi\n");
         printf("NIM	: 24343099\n");
         printf("============================================\n");
@@ -138,8 +138,6 @@ int main(){
                 hard(&highScore);
                 break;
             case 4:
-
-            case 5:
                 printf("Keluar dari program.\n");
                 exit(0);
             default:

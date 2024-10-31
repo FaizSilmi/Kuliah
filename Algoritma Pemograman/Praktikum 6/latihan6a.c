@@ -1,4 +1,5 @@
-/* 	Nama File		: latihan6A.c
+/* 	
+    Nama File		: latihan6A.c
 	Programmer		: Muhammad Faiz Silmi 24343099
 	Tgl. pembuatan	: 14/10/2024
 	Deskripsi		: memasukkan 5 elemen integer ke dalam array, 

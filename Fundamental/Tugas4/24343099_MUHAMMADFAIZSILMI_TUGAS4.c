@@ -11,7 +11,7 @@ struct  Buku
   int tahun;
 };
 
-void tambahkanBuku(struct Buku *perpustakaan, int *jumlahBuku);
+void tambahBuku(struct Buku *perpustakaan, int *jumlahBuku);
 void tampilkanBuku(struct  Buku *perpustakaan, int jumlahBuku);
 void cariBuku(struct Buku *perpustakaan, int jumlahBuku, char *judulCari);
 
@@ -25,7 +25,7 @@ int main(){
     printf("1. Tambah Buku\n");
     printf("2. Tampilkan Semua Buku\n");
     printf("3. Cari Buku Berdasarkan Judul\n");
-    printf("4. Keluar\n");
+    printf("4. Keluar\n");  
     printf("Pilihan anda: ");
     scanf("%d", &pilihan);
     getchar();
@@ -33,7 +33,7 @@ int main(){
     switch (pilihan)
     {
     case 1:
-      tambahkanBuku(perpustakaan, &jumlahBuku);
+      tambahBuku(perpustakaan, &jumlahBuku);
       break;
     case 2:
       tampilkanBuku(perpustakaan, jumlahBuku);
@@ -55,7 +55,7 @@ int main(){
   return 0;
 }
 
-void tambahBuku(struct  Buku *perpustakaan, int *jumlahBuku)
+void tambahBuku(struct Buku *perpustakaan, int *jumlahBuku)
 {
   if (*jumlahBuku < MAX_BUKU){
     printf("Masukkan judul buku: ");
@@ -67,7 +67,7 @@ void tambahBuku(struct  Buku *perpustakaan, int *jumlahBuku)
     perpustakaan[*jumlahBuku].pengarang[strcspn(perpustakaan[*jumlahBuku]. pengarang, "\n")] = 0;
 
     printf("Masukkan tahun terbit: ");
-    scanf("%d", &perpustakaan[*jumlahBuku]. tahun);
+    scanf("%d", &perpustakaan[*jumlahBuku].tahun);
     getchar();
 
     (*jumlahBuku)++;
@@ -77,7 +77,7 @@ void tambahBuku(struct  Buku *perpustakaan, int *jumlahBuku)
   }
 }
 
-void tampilkanBuku(struct  Buku *perpustakaan, int jumlahBuku)
+void tampilkanBuku(struct Buku *perpustakaan, int jumlahBuku)
 {
   if (jumlahBuku == 0){
     printf("Tidak ada buku di perpustakaan,\n");
@@ -87,7 +87,7 @@ void tampilkanBuku(struct  Buku *perpustakaan, int jumlahBuku)
       printf("Buku %d:\n", i + 1);
       printf("Judul     : %s\n", perpustakaan[i].judul);
       printf("Pengarang : %s\n", perpustakaan[i].pengarang);
-      printf("Tahun     : %s\n", perpustakaan[i].tahun);
+      printf("Tahun     : %d\n", perpustakaan[i].tahun);
     }
   }
 }
@@ -100,7 +100,7 @@ void cariBuku(struct Buku *perpustakaan, int jumlahBuku, char *judulCari)
     printf("\nBuku ditemukan:\n");
     printf("Judul     : %s\n", perpustakaan[i].judul);
     printf("Pengarang : %s\n", perpustakaan[i].pengarang);
-    printf("Tahun     : %s\n", perpustakaan[i].tahun);
+    printf("Tahun     : %d\n", perpustakaan[i].tahun);
     ditemukan = 1;
     break;
     }

@@ -1,5 +1,6 @@
 {
   "files.associations": {
-    "Tugas2A.C": "cpp"
+    "Tugas2A.C": "cpp",
+    "string.h": "c"
   }
 }

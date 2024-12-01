@@ -1,6 +1,7 @@
 {
   "files.associations": {
     "Tugas2A.C": "cpp",
-    "string.h": "c"
+    "string.h": "c",
+    "stdio.h": "c"
   }
 }

@@ -1,7 +1,8 @@
 /* 	
     Nama File		: Eva6a.c
 	Programmer	    : Muhammad Faiz Silmi 24343099
-	Tgl. pembuatan	: 14/10/2024                            
+	Tgl. pembuatan	: 14/10/2024
+    Program         : Mengentri warna resistor                   
 */
 
 #include <stdio.h>

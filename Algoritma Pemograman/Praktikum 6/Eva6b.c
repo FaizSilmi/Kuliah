@@ -1,3 +1,9 @@
+/* 	
+    Nama File		: Eva6b.c
+	Programmer	    : Muhammad Faiz Silmi 24343099
+	Tgl. pembuatan	: 14/10/2024
+    Program         : Informasi Peserta                 
+*/
 #include <stdio.h>
 
 #define MAX_PESERTA 100

@@ -88,7 +88,7 @@ int main() {				// Fungsi utama program
     while (1) {
         printf("======Sistem Manajemen File Sederhana=======\n");
         printf("Nama	: Muhammad Faiz Silmi\n");
-        printf("NIM	    : 24343099\n");
+        printf("NIM	: 24343099\n");
         printf("============================================\n");
         printf("1. Buat file\n");
         printf("2. Tulis ke file\n");

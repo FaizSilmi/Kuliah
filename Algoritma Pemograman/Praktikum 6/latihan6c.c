@@ -67,11 +67,11 @@ void multiplyMatrix(int mat1[], int mat2[], int result[], int rows1, int cols1, 
 
 int main() {
     int rows, cols;
-    printf("Masukkan ordo matriks (baris kolom): ");
+    printf("\nMasukkan ordo matriks (baris kolom): ");
     scanf("%d %d", &rows, &cols);
 
     char matrixName[20];
-    printf("Masukkan nama matriks: ");
+    printf("\nMasukkan nama matriks: ");
     scanf("%s", matrixName);
 
     int matrix[rows][cols];

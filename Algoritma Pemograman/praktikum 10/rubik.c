@@ -46,7 +46,7 @@ int main(){
 //definisi fungsi
 void judul(){
 	printf("\nPENGELOLAAN LOMBA RUBIK\n");
-	printf("Programmer: Anu\n");
+	printf("Programmer: Qayla At Thahara\n");
 	printf("==============================\n");
 	printf("Tekan enter...");
 	getch();

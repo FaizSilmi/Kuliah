@@ -21,7 +21,7 @@ int main() {
     int myArray[size]; // Deklarasi array dengan ukuran 5
 
     // Mengisi elemen-elemen array
-    printf("Masukkan %d elemen integer:\n", size);
+    printf("\nMasukkan %d elemen integer:\n", size);
     int i;
     for (i = 0; i < size; i++) {
         scanf("%d", &myArray[i]);

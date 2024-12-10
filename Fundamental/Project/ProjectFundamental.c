@@ -11,7 +11,7 @@ void createFile() {			// Fungsi untuk membuat file baru
     char filename[100];
     printf("Masukkan nama file yang ingin dibuat: ");
     getchar();				// Membersihkan buffer
-    fgets(filename, sizeof(filename), stdin);
+    fgets(filename, sizeof(filename), stdin);   
     filename[strcspn(filename, "\n")] = '\0'; // strcspn menghapus karakter newline
 
     FILE *file = fopen(filename, "w");	// Membuka atau membuat file baru

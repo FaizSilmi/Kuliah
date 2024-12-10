@@ -11,7 +11,7 @@ void createFile() {			// Fungsi untuk membuat file baru
     char filename[100];
     printf("Masukkan nama file yang ingin dibuat: ");
     getchar();				// Membersihkan buffer
-    fgets(filename, sizeof(filename), stdin);
+    fgets(filename, sizeof(filename), stdin);   
     filename[strcspn(filename, "\n")] = '\0'; // strcspn menghapus karakter newline
 
     FILE *file = fopen(filename, "w");	// Membuka atau membuat file baru
@@ -88,7 +88,7 @@ int main() {				// Fungsi utama program
     while (1) {
         printf("======Sistem Manajemen File Sederhana=======\n");
         printf("Nama	: Muhammad Faiz Silmi\n");
-        printf("NIM	    : 24343099\n");
+        printf("NIM	: 24343099\n");
         printf("============================================\n");
         printf("1. Buat file\n");
         printf("2. Tulis ke file\n");

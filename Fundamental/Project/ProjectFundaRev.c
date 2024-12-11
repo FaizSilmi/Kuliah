@@ -1,44 +1,49 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
+#include <stdlib.h>
+#include <time.h>
 
-// Prototipe fungsi
+// Deklarasi fungsi
+void logToFile(FILE *outputFile, const char *message);
+void logCreatedFile(const char *filename);
+void removeFileFromLog(const char *filename);
+void processFile(const char *inputFilename, const char *outputFilename);
+void viewFileList();
 void createFile();
 void writeFile();
 void readFile();
 void deleteFile();
-void processFile(const char *inputFilename, const char *outputFilename);
-void viewFileList();  // Menambahkan fungsi untuk melihat daftar file
-void removeFileFromLog(const char *filename);  // Menambahkan fungsi untuk menghapus file dari log
 
-// Fungsi untuk menulis log ke file output
+// Fungsi untuk mencatat log ke file
 void logToFile(FILE *outputFile, const char *message) {
     fprintf(outputFile, "%s\n", message);
 }
 
-// Fungsi untuk menambahkan nama file ke file log
+// Fungsi untuk mencatat nama file yang dibuat
 void logCreatedFile(const char *filename) {
     FILE *logFile = fopen("file_log.txt", "a");
-    if (logFile != NULL) {
+    if (logFile) {
         fprintf(logFile, "%s\n", filename);
         fclose(logFile);
-    } else {
-        printf("Gagal membuka file log untuk mencatat nama file.\n");
     }
 }
 
-// Fungsi untuk menghapus file dari log
+// Fungsi untuk menghapus nama file dari log
 void removeFileFromLog(const char *filename) {
     FILE *logFile = fopen("file_log.txt", "r");
-    FILE *tempFile = fopen("temp_log.txt", "w");
-    if (logFile == NULL || tempFile == NULL) {
-        printf("Gagal membuka file log untuk menghapus file.\n");
+    if (logFile == NULL) {
+        return;
+    }
+
+    FILE *tempFile = fopen("file_log_temp.txt", "w");
+    if (tempFile == NULL) {
+        fclose(logFile);
         return;
     }
 
     char line[256];
     while (fgets(line, sizeof(line), logFile)) {
-        line[strcspn(line, "\n")] = '\0';  // Menghapus newline
+        line[strcspn(line, "\n")] = '\0';
         if (strcmp(line, filename) != 0) {
             fprintf(tempFile, "%s\n", line);
         }
@@ -46,14 +51,15 @@ void removeFileFromLog(const char *filename) {
 
     fclose(logFile);
     fclose(tempFile);
-    
-    // Menggantikan file log dengan file sementara yang baru
+
     remove("file_log.txt");
-    rename("temp_log.txt", "file_log.txt");
+    rename("file_log_temp.txt", "file_log.txt");
 }
 
-// Fungsi untuk memproses perintah dari file input dan mencatat hasil ke file output
 void processFile(const char *inputFilename, const char *outputFilename) {
+    clock_t start_time, end_time;
+    start_time = clock(); // Mencatat waktu mulai
+
     FILE *inputFile = fopen(inputFilename, "r");
     FILE *outputFile = fopen(outputFilename, "w");
 
@@ -87,16 +93,19 @@ void processFile(const char *inputFilename, const char *outputFilename) {
             }
         } else if (strncmp(line, "isifile:", 8) == 0) {
             char filename[100], content[200];
-            sscanf(line + 8, "%s %[^\n]", filename, content);
-            FILE *file = fopen(filename, "a");
-            if (file) {
-                fprintf(file, "%s\n", content);
-                fclose(file);
-                char logMessage[200];
-                snprintf(logMessage, sizeof(logMessage), "File %s diisi dengan: %s", filename, content);
-                logToFile(outputFile, logMessage);
+            if (sscanf(line + 8, "%s \"%[^\"]\"", filename, content) == 2) {
+                FILE *file = fopen(filename, "a");
+                if (file) {
+                    fprintf(file, "%s\n", content);
+                    fclose(file);
+                    char logMessage[200];
+                    snprintf(logMessage, sizeof(logMessage), "File %s diisi dengan: %s", filename, content);
+                    logToFile(outputFile, logMessage);
+                } else {
+                    printf("Gagal membuka file %s.\n", filename);
+                }
             } else {
-                printf("Gagal membuka file %s.\n", filename);
+                printf("Format isifile tidak valid: %s\n", line);
             }
         } else if (strncmp(line, "hapusfile:", 10) == 0) {
             char filename[100];
@@ -114,7 +123,10 @@ void processFile(const char *inputFilename, const char *outputFilename) {
 
     fclose(inputFile);
     fclose(outputFile);
-    printf("Proses selesai. Hasil dicatat di file \"%s\".\n", outputFilename);
+
+    end_time = clock(); // Mencatat waktu selesai
+    double duration = (double)(end_time - start_time) / CLOCKS_PER_SEC;
+    printf("Proses selesai dalam waktu %.2f detik. Hasil dicatat di file \"%s\".\n", duration, outputFilename);
 }
 
 // Fungsi untuk melihat daftar file yang telah dibuat
@@ -168,7 +180,7 @@ int main() {
                 processFile("input.txt", "output.txt");
                 break;
             case 6:
-                viewFileList();  // Menampilkan daftar file
+                viewFileList();
                 break;
             case 7:
                 printf("Keluar dari program.\n");

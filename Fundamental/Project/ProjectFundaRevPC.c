@@ -151,6 +151,19 @@ void viewFileList() {
 // Fungsi utama
 int main() {
     int choice;
+    char cwd[1024];
+    if (getcwd(cwd, sizeof(cwd)) != NULL) {   // Fungsi ini berguna untuk mendeteksi direktori awal
+         printf("File akan disimpan di direktori: %s\n", cwd);
+    } else {
+        perror("getcwd() error");
+        return 1;
+    }
+    const char *newDirectory = "J:\\Kuliah\\Fundamental\\Project\\output"; //Fungsi ini berguna untuk mengubah file direktori
+    if (chdir(newDirectory) == 0) {
+    printf("Direktori kerja berhasil diubah ke: %s\n", newDirectory);
+    } else {
+        perror("Gagal mengubah direktori kerja");
+    }
     while (1) {
         printf("====== Sistem Manajemen File Sederhana ======\n");
         printf("1. Buat file\n");

@@ -132,6 +132,8 @@ void processFile(const char *inputFilename, const char *outputFilename) {
 
 // Fungsi untuk melihat daftar file yang telah dibuat
 void viewFileList() {
+    clock_t start_time, end_time;
+    start_time = clock(); // Mencatat waktu mulai
     FILE *logFile = fopen("file_log.txt", "r");
     if (logFile == NULL) {
         printf("Tidak ada file yang tercatat.\n");
@@ -146,6 +148,9 @@ void viewFileList() {
     }
 
     fclose(logFile);
+    end_time = clock(); // Mencatat waktu selesai
+    double duration = (double)(end_time - start_time) / CLOCKS_PER_SEC;
+    printf("Proses selesai dalam waktu %.2f detik.\n", duration, filename);
 }
 
 // Fungsi utama

@@ -132,6 +132,8 @@ void processFile(const char *inputFilename, const char *outputFilename) {
 
 // Fungsi untuk melihat daftar file yang telah dibuat
 void viewFileList() {
+    clock_t start_time, end_time;
+    start_time = clock(); // Mencatat waktu mulai
     FILE *logFile = fopen("file_log.txt", "r");
     if (logFile == NULL) {
         printf("Tidak ada file yang tercatat.\n");
@@ -146,6 +148,10 @@ void viewFileList() {
     }
 
     fclose(logFile);
+    
+    end_time = clock(); // Mencatat waktu selesai
+    double duration = (double)(end_time - start_time) / CLOCKS_PER_SEC;
+    printf("Proses selesai dalam waktu %.2f detik.\n", duration);
 }
 
 // Fungsi utama
@@ -196,6 +202,8 @@ int main() {
 // Fungsi untuk membuat file baru
 void createFile() {
     char filename[100];
+    clock_t start_time, end_time;
+    start_time = clock(); // Mencatat waktu mulai
     printf("Masukkan nama file yang ingin dibuat: ");
     getchar(); // Membersihkan buffer
     fgets(filename, sizeof(filename), stdin);
@@ -209,11 +217,18 @@ void createFile() {
     } else {
         printf("Gagal membuat file \"%s\".\n", filename);
     }
+    end_time = clock(); // Mencatat waktu selesai
+    double duration = (double)(end_time - start_time) / CLOCKS_PER_SEC;
+    printf("Proses selesai dalam waktu %.2f detik.\n", duration);
 }
 
 // Fungsi untuk menulis ke file
 void writeFile() {
     char filename[100], content[500];
+
+    clock_t start_time, end_time;
+    start_time = clock(); // Mencatat waktu mulai
+
     printf("Masukkan nama file yang ingin ditulis: ");
     getchar(); // Membersihkan buffer
     fgets(filename, sizeof(filename), stdin);
@@ -229,11 +244,19 @@ void writeFile() {
     } else {
         printf("Gagal membuka file \"%s\".\n", filename);
     }
+
+    end_time = clock(); // Mencatat waktu selesai
+    double duration = (double)(end_time - start_time) / CLOCKS_PER_SEC;
+    printf("Proses selesai dalam waktu %.2f detik.\n", duration);
 }
 
 // Fungsi untuk membaca isi file
 void readFile() {
     char filename[100];
+
+    clock_t start_time, end_time;
+    start_time = clock(); // Mencatat waktu mulai
+
     printf("Masukkan nama file yang ingin dibaca: ");
     getchar(); // Membersihkan buffer
     fgets(filename, sizeof(filename), stdin);
@@ -250,11 +273,19 @@ void readFile() {
     } else {
         printf("File \"%s\" tidak ditemukan.\n", filename);
     }
+
+    end_time = clock(); // Mencatat waktu selesai
+    double duration = (double)(end_time - start_time) / CLOCKS_PER_SEC;
+    printf("Proses selesai dalam waktu %.2f detik.\n", duration);
 }
 
 // Fungsi untuk menghapus file
 void deleteFile() {
     char filename[100];
+
+    clock_t start_time, end_time;
+    start_time = clock(); // Mencatat waktu mulai
+
     printf("Masukkan nama file yang ingin dihapus: ");
     getchar(); // Membersihkan buffer
     fgets(filename, sizeof(filename), stdin);
@@ -266,4 +297,8 @@ void deleteFile() {
     } else {
         printf("Gagal menghapus file \"%s\".\n", filename);
     }
+
+    end_time = clock(); // Mencatat waktu selesai
+    double duration = (double)(end_time - start_time) / CLOCKS_PER_SEC;
+    printf("Proses selesai dalam waktu %.2f detik.\n", duration);
 }

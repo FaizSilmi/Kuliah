@@ -25,6 +25,11 @@ int getColorValue(char* color) {
 int main(){
     char warna1[20], warna2[20], warna3[20];
     int choice, nilai1, nilai2, faktor, nilaiResistor;
+    printf(" Mengentri warna resistor \n");
+    printf("=============================\n");
+    printf("Nama : Muhammad Faiz Silmi\n");
+    printf("Nim  : 24343099\n");
+    printf("=============================\n");
     do {
         printf("\nMenu:\n");
         printf("1. Lihat daftar warna dan nilainya\n");

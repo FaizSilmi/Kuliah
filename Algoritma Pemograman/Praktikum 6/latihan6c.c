@@ -67,6 +67,11 @@ void multiplyMatrix(int mat1[], int mat2[], int result[], int rows1, int cols1, 
 
 int main() {
     int rows, cols;
+    printf(" program ini melakukan operasi matriks	    \n");
+    printf("=============================\n");
+    printf("Nama : Muhammad Faiz Silmi\n");
+    printf("Nim  : 24343099\n");
+    printf("=============================\n");
     printf("\nMasukkan ordo matriks (baris kolom): ");
     scanf("%d %d", &rows, &cols);
 

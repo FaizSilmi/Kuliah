@@ -47,6 +47,11 @@ int main() {
     int pilihan;
     int jumlahPeserta;
     char namaPeserta[MAX_PESERTA][20];
+    printf(" Informasi Peserta \n");
+    printf("=============================\n");
+    printf("Nama : Muhammad Faiz Silmi\n");
+    printf("Nim  : 24343099\n");
+    printf("=============================\n");
     printf("Piluh menu: \n");
     printf("1. Input Data Peserta: \n");
     printf("2. Score data peserta: \n");

@@ -18,7 +18,11 @@ int main() {
     int years[MAX_BOOKS];
     char classifications[MAX_BOOKS][MAX_STRING_LENGTH];
     int bookCount = 0;
-
+    printf(" pengelolaan data buku perpustakaan	  \n");
+    printf("=============================\n");
+    printf("Nama : Muhammad Faiz Silmi\n");
+    printf("Nim  : 24343099\n");
+    printf("=============================\n");
     int choice;
     do {
         printf("\nMenu:\n");

@@ -1,3 +1,9 @@
+/*  Nama File       : latihan7a.c
+    Programmer      : Muhammad Faiz Silmi 24343099
+    Tgl. pembuatan  : 19/10/2024
+    Deskripsi       : Mengakses Array Dinamis Menggunakan Pointer
+*/
+
 #include <stdio.h>
 
 // Definisi struktur data
@@ -13,7 +19,11 @@ void tampilkanMahasiswa(struct Mahasiswa *mhs);
 int main() {
     struct Mahasiswa mhs;
     struct Mahasiswa *ptr = &mhs;
-
+    printf(" Mengakses Array Dinemis Menggunakan Pointer \n");
+    printf("=============================\n");
+    printf("Nama : Muhammad Faiz Silmi\n");
+    printf("Nim  : 24343099\n");
+    printf("=============================\n");
     // Inisialisasi elemen-elemen struktur melalui pointer
     strcpy(ptr->nama, "Budi");
     ptr->umur = 20;

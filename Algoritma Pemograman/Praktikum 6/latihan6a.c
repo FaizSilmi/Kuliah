@@ -20,6 +20,12 @@ int main() {
     int size = 5; // Ukuran array
     int myArray[size]; // Deklarasi array dengan ukuran 5
 
+    printf(" memasukkan 5 elemen integer ke dalam array \n");
+    printf("=============================\n");
+    printf("Nama : Muhammad Faiz Silmi\n");
+    printf("Nim  : 24343099\n");
+    printf("=============================\n");
+
     // Mengisi elemen-elemen array
     printf("\nMasukkan %d elemen integer:\n", size);
     int i;

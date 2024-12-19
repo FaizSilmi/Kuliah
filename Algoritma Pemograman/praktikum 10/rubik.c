@@ -1,28 +1,36 @@
+/* 	
+	Nama File       : Tugas1.c
+	Programmer      : Muhammad Faiz Silmi 24343099
+	Tgl. pembuatan  : 10/12/2024
+	Deskripsi       : Pengelolaan Waktu Perlombaan Rubik                  
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 #define N 3
 
-struct PESERTA{
+struct PESERTA {
 	char nama[30];
 	char nomor[4];
 };
 
-struct WAKTU{
+struct WAKTU {
 	int jj;
 	int mm;
 	int dd;
 };
 
-struct LOMBA{
+struct LOMBA {
 	struct PESERTA peserta;
 	struct WAKTU mulai;
 	struct WAKTU akhir;
 	struct WAKTU selisih;
 };
 
-//deklarasi fungsi
+// Function declarations
 void judul();
 void selesai();
 void menu();
@@ -32,166 +40,153 @@ struct LOMBA entriData();
 int totalDetik(struct WAKTU w);
 void info(struct LOMBA lmb[]);
 
-//var global posisi elemen
-int isi=0;//karena belum ada isi array
+// Global variable for array position
+int isi = 0;
 
-int main(){
+int main() {
 	judul();
 	menu();
 	selesai();
-	
 	return 0;
 }
 
-//definisi fungsi
-void judul(){
-	printf("\nPENGELOLAAN LOMBA RUBIK\n");
-	printf("Programmer: Qayla At Thahara\n");
-	printf("==============================\n");
-	printf("Tekan enter...");
-	getch();
+void judul() {
+	printf("Pengelolaan Waktu Perlombaan Rubik\n");
+	printf("==================================\n");
+	printf("Nama : Muhammad Faiz Silmi\n");
+	printf("NIM  : 24343099\n");
+	printf("==================================\n\n");
+	printf("Tekan Enter untuk melanjutkan...\n");
+	getchar();
 }
 
-void selesai(){
+void selesai() {
 	printf("\nTerima kasih.... Sampai jumpa...\n");
-	printf("Tekan enter...");
-	getch();
+	printf("Tekan Enter untuk keluar...");
+	getchar();
 }
 
-int cekPenuh(struct LOMBA m[]){
-	if(isi == N) return 1;
-	else return 0; 
+int cekPenuh(struct LOMBA m[]) {
+	return isi == N;
 }
 
-void menu(){
+void menu() {
 	int pilih;
 	struct LOMBA rubik[N];
 	char jawab;
-	
-	do{
-		printf("MENU PILIHAN\n");
+
+	do {
+		printf("\nMENU PILIHAN\n");
 		printf("--------------------------------\n");
 		printf("1. Tambah Data\n");
 		printf("2. Lihat Informasi\n");
 		printf("0. Keluar\n");
 		printf("--------------------------------\n");
-		printf("Ketik Nomor pilihan Anda: ");
-		scanf("%d", &pilih); fflush(stdin);
-		
-		switch(pilih){
-			case 1: tambahData(rubik); break;
-			case 2: info(rubik); break;
-			case 0: selesai(); break;
-			default: printf("\nNomor pilihan tidak ada...");
+		printf("Masukkan nomor pilihan Anda: ");
+		scanf("%d", &pilih);
+		getchar(); // Clear newline from input buffer
+
+		switch (pilih) {
+			case 1: 
+				tambahData(rubik); 
+				break;
+			case 2: 
+				info(rubik); 
+				break;
+			case 0: 
+				return;
+			default: 
+				printf("\nNomor pilihan tidak valid.\n");
 		}
-		
-		printf("\nMau mengulang lagi (Y/T): ");
-		scanf("%c", &jawab);
-	} while(toupper(jawab) == 'Y');
+
+		printf("\nMau mengulang lagi (Y/T)? ");
+		scanf(" %c", &jawab);
+		getchar(); // Clear newline
+	} while (toupper(jawab) == 'Y');
 }
 
 void tambahData(struct LOMBA lmb[]) {
 	char lagi;
-	int penuh;
-	
-	penuh = cekPenuh(lmb);
-	
-	do{
-		//cek dulu array, penuh tidak?
-		if(penuh){
-			printf("\nData penuh...");
+	int penuh = cekPenuh(lmb);
+
+	do {
+		if (penuh) {
+			printf("\nData penuh...\n");
+			break;
 		}
-		else{
-			//entrikan data
-			lmb[isi] = entriData();
-			isi++;
-			penuh = cekPenuh(lmb);
+
+		// Enter data
+		lmb[isi] = entriData();
+		isi++;
+		penuh = cekPenuh(lmb);
+
+		if (penuh) {
+			printf("\nIni data terakhir... Tekan Enter...\n");
+			getchar();
+			break;
+		} else {
+			printf("\nTambah lagi (Y/T)? ");
+			scanf(" %c", &lagi);
+			getchar(); // Clear newline
 		}
-		//tambah lagi gak? lakukan jika masih bisa
-		if(penuh){
-			printf("\nIni data terakhir...Tekan Enter...");
-			lagi = 'T';
-			getch();
-		}
-		else{
-			printf("\nTambah lagi (Y/T): ");
-			scanf("%c", &lagi); fflush(stdin);
-		}
-	}while(toupper(lagi)=='Y');
+	} while (toupper(lagi) == 'Y');
 }
 
-struct LOMBA entriData(){
+struct LOMBA entriData() {
 	struct LOMBA temp;
 	char pemisah;
 	int selisih;
-	
-	printf("Ketikkan nama peserta : ");
-	gets(temp.peserta.nama); fflush(stdin);
-	printf("Ketikkan nomor peserta: ");
-	gets(temp.peserta.nomor); fflush(stdin);
-	printf("Ketikkan waktu start (ex, 07:05:10) : ");
-	scanf("%d%c%d%c%d", &temp.mulai.jj, &pemisah,
-				&temp.mulai.mm, &pemisah,
-				&temp.mulai.dd); fflush(stdin);
-	printf("Ketikkan waktu finish (ex, 08:00:15): ");
-	scanf("%d%c%d%c%d", &temp.akhir.jj, &pemisah,
-				&temp.akhir.mm, &pemisah,
-				&temp.akhir.dd); fflush(stdin);
-	//isikan selisih waktu
+
+	printf("\nMasukkan nama peserta: ");
+	fgets(temp.peserta.nama, sizeof(temp.peserta.nama), stdin);
+	temp.peserta.nama[strcspn(temp.peserta.nama, "\n")] = '\0'; // Remove newline
+
+	printf("Masukkan nomor peserta: ");
+	fgets(temp.peserta.nomor, sizeof(temp.peserta.nomor), stdin);
+	temp.peserta.nomor[strcspn(temp.peserta.nomor, "\n")] = '\0'; // Remove newline
+
+	printf("Masukkan waktu start (hh:mm:ss): ");
+	scanf("%d%c%d%c%d", &temp.mulai.jj, &pemisah, &temp.mulai.mm, &pemisah, &temp.mulai.dd);
+
+	printf("Masukkan waktu finish (hh:mm:ss): ");
+	scanf("%d%c%d%c%d", &temp.akhir.jj, &pemisah, &temp.akhir.mm, &pemisah, &temp.akhir.dd);
+	getchar(); // Clear newline
+
+	// Calculate time difference
 	selisih = totalDetik(temp.akhir) - totalDetik(temp.mulai);
-	//ubah total detik ke format j, m, d
-	temp.selisih.jj = selisih/3600;
-	temp.selisih.mm = selisih%3600/60;
-	temp.selisih.dd = selisih%3600%60;
-	
+	temp.selisih.jj = selisih / 3600;
+	temp.selisih.mm = (selisih % 3600) / 60;
+	temp.selisih.dd = (selisih % 3600) % 60;
+
 	return temp;
 }
 
-int totalDetik(struct WAKTU w){
-	int ttl;
-	
-	ttl = w.jj * 3600 + w.mm *60 + w.dd;
-	
-	return ttl;
+int totalDetik(struct WAKTU w) {
+	return w.jj * 3600 + w.mm * 60 + w.dd;
 }
 
-void info(struct LOMBA lmb[]){
-	int i;
-	int js, ms, ds;
-	int jf, mf, df;
-	int jb, mb, db;
-	char nm[20];
-	
-	if(isi == 0){
-	     printf("Data Tidak Ada\n");
-	}	
-
-	if(isi){
-		//cetak isinya
-		printf("\nINFORMASI LOMBA\n");
-		printf("==================================================\n");
-		printf("NO. PESERTA          W START   W FINISH  DURASI\n");
-		printf("==================================================\n");
-		for(i=0;i<isi;i++){
-			js = lmb[i].mulai.jj;
-			ms = lmb[i].mulai.mm;
-			ds = lmb[i].mulai.dd;
-			
-			jf = lmb[i].akhir.jj;
-			mf = lmb[i].akhir.mm;
-			df = lmb[i].akhir.dd;
-			
-			jb = lmb[i].selisih.jj;
-			mb = lmb[i].selisih.mm;
-			db = lmb[i].selisih.dd;
-			
-			strcpy(nm, lmb[i].peserta.nama);
-			
-			printf("%2d. %-15s  %02d:%02d:%02d  %02d:%02d:%02d  %02d:%02d:%02d\n"
-					,i+1, nm, js, ms, ds, jf, mf, df, jb, mb, db);
-		}
-		printf("==================================================\n");
-		printf("Tekan Enter...");
-		getch();
+void info(struct LOMBA lmb[]) {
+	if (isi == 0) {
+		printf("\nData tidak ada.\n");
+		return;
 	}
+
+	printf("\nINFORMASI LOMBA\n");
+	printf("==================================================\n");
+	printf("NO. PESERTA          W START   W FINISH  DURASI\n");
+	printf("==================================================\n");
+
+	for (int i = 0; i < isi; i++) {
+		printf("%2d. %-15s  %02d:%02d:%02d  %02d:%02d:%02d  %02d:%02d:%02d\n",
+			i + 1,
+			lmb[i].peserta.nama,
+			lmb[i].mulai.jj, lmb[i].mulai.mm, lmb[i].mulai.dd,
+			lmb[i].akhir.jj, lmb[i].akhir.mm, lmb[i].akhir.dd,
+			lmb[i].selisih.jj, lmb[i].selisih.mm, lmb[i].selisih.dd
+		);
+	}
+
+	printf("==================================================\n");
+	printf("Tekan Enter untuk melanjutkan...");
+	getchar();
 }

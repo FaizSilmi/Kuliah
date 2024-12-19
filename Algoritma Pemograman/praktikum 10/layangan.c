@@ -1,3 +1,10 @@
+/* 	
+	Nama File			: Tugas1.c
+	Programmer			: Muhammad Faiz Silmi 24343099
+	Tgl. pembuatan	    : 10/12/2024
+	Deskripsi			: Pengelolaan Waktu Perlombaan Layangan           
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -43,9 +50,11 @@ int main() {
 
 // Definisi fungsi
 void judul() {
-    printf("\nPENGELOLAAN LOMBA LAYANGAN\n");
-    printf("Programmer: Anu\n");
-    printf("==============================\n");
+    printf(" Pengelolaan Waktu Perlombaan Layangan\n");
+	printf("==============================\n");
+	printf("Nama : Muhammad Faiz Silmi\n");
+	printf("Nim  : 24343099\n");
+	printf("==============================\n");
     printf("Tekan enter...");
     getchar();
 }

@@ -1,58 +1,79 @@
 /*
-	Nama File: struct3.c
-	Menggunakan typedef dan pointer struct 
-	
+    Programmer    : Muhammad Faiz Silmi
+    NIM           : 24343099
+    Nama File     : struct3.c
+    Menggunakan typedef dan pointer struct
 */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-typedef struct{
-	char nama[30];
-	char nim[5];
-	double ipk;
+// Menggunakan typedef untuk struct
+typedef struct {
+    char nama[30];
+    char nim[5];
+    double ipk;
 } MHS;
 
-//deklarasi fungsi2
-//fungsi untuk mengisi data struct
-void isiData(MHS *mhsKu, char *nm, char *ni, double ip);
-//fungsi mengcetak info data pd struct
-void infoData(MHS *mhsKu);
+// Deklarasi fungsi
+// Fungsi untuk mengisi data struct
+void isiData(MHS *mhsKu, const char *nm, const char *ni, double ip);
+// Fungsi mencetak info data pada struct
+void infoData(const MHS *mhsKu);
 
-int main(){
-	MHS myMhs;
-	char namanya[30], nimnya[5];
-	double ipknya;
-	
-	
-	printf("Mengisi data struct:\n");
-	printf("Ketikkan nama mahasiswa: ");
-	gets(namanya); fflush(stdin);
-	printf("Ketikkan NIM Mahasiswa: ");
-	gets(nimnya); fflush(stdin);
-	printf("Ketikkan IPK Mahasiswa: ");
-	scanf("%lf",&ipknya); fflush(stdin);
-	
-	//panggil fungsi mengisi data pada struct
-	isiData(&myMhs, namanya, nimnya, ipknya);
-	
-	//panggil fungsi untuk mencetak info mahsiswa
-	infoData(&myMhs);
-	return 0;
+int main() {
+    MHS myMhs;
+    char namanya[30], nimnya[5];
+    double ipknya;
+
+    printf(" Menggunakan typedef dan pointer struct \n");
+    printf("====================================\n");
+    printf("Nama : Muhammad Faiz Silmi\n");
+    printf("NIM  : 24343099\n");
+    printf("====================================\n");
+
+    printf("Mengisi data struct:\n");
+
+    // Input data mahasiswa
+    printf("Ketikkan nama mahasiswa: ");
+    fgets(namanya, sizeof(namanya), stdin);
+    namanya[strcspn(namanya, "\n")] = 0; // Remove trailing newline
+
+    printf("Ketikkan NIM Mahasiswa: ");
+    fgets(nimnya, sizeof(nimnya), stdin);
+    nimnya[strcspn(nimnya, "\n")] = 0; // Remove trailing newline
+
+    printf("Ketikkan IPK Mahasiswa: ");
+    if (scanf("%lf", &ipknya) != 1) {
+        printf("Input IPK tidak valid.\n");
+        return 1;
+    }
+
+    // Panggil fungsi untuk mengisi data pada struct
+    isiData(&myMhs, namanya, nimnya, ipknya);
+
+    // Panggil fungsi untuk mencetak info mahasiswa
+    infoData(&myMhs);
+
+    return 0;
 }
 
-//definisi fungsi]
-//fungsi untuk mengisi data struct
-void isiData(MHS *mhsKu, char *nm, char *ni, double ip){
-	strcpy(mhsKu->nama, nm);
-	strcpy(mhsKu->nim, ni);
-	mhsKu->ipk = ip;
+// Fungsi untuk mengisi data struct
+void isiData(MHS *mhsKu, const char *nm, const char *ni, double ip) {
+    strncpy(mhsKu->nama, nm, sizeof(mhsKu->nama) - 1);
+    mhsKu->nama[sizeof(mhsKu->nama) - 1] = '\0'; // Ensure null-termination
+
+    strncpy(mhsKu->nim, ni, sizeof(mhsKu->nim) - 1);
+    mhsKu->nim[sizeof(mhsKu->nim) - 1] = '\0'; // Ensure null-termination
+
+    mhsKu->ipk = ip;
 }
 
-//fungsi mengcetak info data pd struct
-void infoData(MHS *mhsKu){
-	printf("Informasi Mahasiswa\n");
-	printf("Nama Mahasiswa : %s\n",mhsKu->nama);
-	printf("NIM Mahasiswa  : %s\n",mhsKu->nim);
-	printf("IPK Mahasiswa  : %0.2lf\n",mhsKu->ipk);
+// Fungsi mencetak info data pada struct
+void infoData(const MHS *mhsKu) {
+    printf("\nInformasi Mahasiswa\n");
+    printf("Nama Mahasiswa : %s\n", mhsKu->nama);
+    printf("NIM Mahasiswa  : %s\n", mhsKu->nim);
+    printf("IPK Mahasiswa  : %.2lf\n", mhsKu->ipk);
 }

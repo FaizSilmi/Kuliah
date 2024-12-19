@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h> // Untuk mengukur waktu eksekusi
+#include <unistd.h>
 
 #define MAX_BUFFER 1000 // Ukuran buffer untuk membaca file
 
@@ -54,6 +55,19 @@ void hitungDenganFscanf(FILE *file, int *jumlahKarakter, int *jumlahKata, int *j
 }
 
 int main() {
+    char cwd[1024];
+    if (getcwd(cwd, sizeof(cwd)) != NULL) {   // Fungsi ini berguna untuk mendeteksi direktori awal
+         printf("File akan disimpan di direktori: %s\n", cwd);
+    } else {
+        perror("getcwd() error");
+        return 1;
+    }
+    const char *newDirectory = "J:\\Kuliah\\Fundamental\\Tugas6"; //Fungsi ini berguna untuk mengubah file direktori
+    if (chdir(newDirectory) == 0) {
+    printf("Direktori kerja berhasil diubah ke: %s\n", newDirectory);
+    } else {
+        perror("Gagal mengubah direktori kerja");
+    }
     printf("Nama Programmer: Muhammad Faiz Silmi\n");
     printf("NIM            : 24343099\n");
     

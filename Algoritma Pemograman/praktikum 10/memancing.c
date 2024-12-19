@@ -1,3 +1,10 @@
+/* 	
+	Nama File			: Tugas1.c
+	Programmer			: Muhammad Faiz Silmi 24343099
+	Tgl. pembuatan	    : 10/12/2024
+	Deskripsi			: Pengelolaan Waktu Perlombaan Memancing           
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -34,6 +41,11 @@ int isi = 0;
 
 int main() {
     struct PESERTA *peserta[N] = {NULL};  // Array of pointer to PESERTA
+    printf(" Pengelolaan Waktu Perlombaan memancing\n");
+	printf("==============================\n");
+	printf("Nama : Muhammad Faiz Silmi\n");
+	printf("Nim  : 24343099\n");
+	printf("==============================\n");
     judul();
     menu(peserta);
     selesai();

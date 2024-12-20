@@ -1,3 +1,10 @@
+/* 	
+	Nama File			: Tugas1.c
+	Programmer			: Muhammad Faiz Silmi 24343099
+	Tgl. pembuatan	    : 10/12/2024
+	Deskripsi			: Pengelolaan Waktu Perlombaan Masak      
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -28,7 +35,11 @@ void updateData(struct PESERTA **peserta, int isi);
 int main() {
     struct PESERTA *peserta[N];
     int isi = 0;
-
+    printf(" Pengelolaan Waktu Perlombaan Masak\n");
+	printf("==============================\n");
+	printf("Nama : Muhammad Faiz Silmi\n");
+	printf("Nim  : 24343099\n");
+	printf("==============================\n");
     int pilihan;
     do {
         printf("\n1. Tambah Data\n");

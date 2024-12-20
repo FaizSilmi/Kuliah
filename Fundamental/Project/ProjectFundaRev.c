@@ -158,6 +158,14 @@ void viewFileList() {
 int main() {
     int choice;
     while (1) {
+        printf("=================================================\n");
+        printf("======== Sistem Manajemen File Sederhana ========\n");
+        printf("=================================================\n");
+        printf("|   Nama    : Muhammad Faiz Silmi                |\n");
+        printf("|   NIM     : 24343099                           |\n");
+        printf("|   Project : Manajemen File Sederhana           |\n");
+        printf("=================================================\n");
+        printf(" \n");
         printf("====== Sistem Manajemen File Sederhana ======\n");
         printf("1. Buat file\n");
         printf("2. Tulis ke file\n");

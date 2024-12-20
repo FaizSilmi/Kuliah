@@ -1,5 +1,0 @@
-Program dimulai.
-buatfile: aku
-isifile: aku "anak sehat
-"
-hapusfile: aku
